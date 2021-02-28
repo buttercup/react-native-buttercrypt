@@ -1,1 +1,1 @@
-it.todo('write a test');
+it.todo('native modules cannot be tested with jest');

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		5E555C0D2413F4C50049A1A2 /* Buttercrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* Buttercrypt.m */; };
-		F4FF95D7245B92E800C19C63 /*  Buttercrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /*  Buttercrypt.swift */; };
-
+		990759E825EBE52300A16C65 /* BCDerivation.m in Sources */ = {isa = PBXBuildFile; fileRef = 990759E525EBE52300A16C65 /* BCDerivation.m */; };
+		990759E925EBE52300A16C65 /* BCHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 990759E625EBE52300A16C65 /* BCHelpers.m */; };
+		990759ED25EBEF0600A16C65 /* BCCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 990759EC25EBEF0600A16C65 /* BCCrypto.m */; };
+		F4FF95D7245B92E800C19C63 /* Buttercrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /* Buttercrypt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,11 +27,15 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libButtercrypt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libButtercrypt.a; sourceTree = BUILT_PRODUCTS_DIR; };
-
+		990759E425EBE52300A16C65 /* BCHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCHelpers.h; sourceTree = "<group>"; };
+		990759E525EBE52300A16C65 /* BCDerivation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCDerivation.m; sourceTree = "<group>"; };
+		990759E625EBE52300A16C65 /* BCHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCHelpers.m; sourceTree = "<group>"; };
+		990759E725EBE52300A16C65 /* BCDerivation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCDerivation.h; sourceTree = "<group>"; };
+		990759EB25EBEF0600A16C65 /* BCCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCCrypto.h; sourceTree = "<group>"; };
+		990759EC25EBEF0600A16C65 /* BCCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCCrypto.m; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* Buttercrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buttercrypt.m; sourceTree = "<group>"; };
 		F4FF95D5245B92E700C19C63 /* Buttercrypt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Buttercrypt-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4FF95D6245B92E800C19C63 /* Buttercrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttercrypt.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +60,15 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-
+				990759EB25EBEF0600A16C65 /* BCCrypto.h */,
+				990759EC25EBEF0600A16C65 /* BCCrypto.m */,
+				990759E725EBE52300A16C65 /* BCDerivation.h */,
+				990759E525EBE52300A16C65 /* BCDerivation.m */,
+				990759E425EBE52300A16C65 /* BCHelpers.h */,
+				990759E625EBE52300A16C65 /* BCHelpers.m */,
 				F4FF95D6245B92E800C19C63 /* Buttercrypt.swift */,
 				B3E7B5891CC2AC0600A0062D /* Buttercrypt.m */,
 				F4FF95D5245B92E700C19C63 /* Buttercrypt-Bridging-Header.h */,
-
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,10 +130,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
+				990759E925EBE52300A16C65 /* BCHelpers.m in Sources */,
 				F4FF95D7245B92E800C19C63 /* Buttercrypt.swift in Sources */,
-				B3E7B58A1CC2AC0600A0062D /* Buttercrypt.m in Sources */,
-
+				990759E825EBE52300A16C65 /* BCDerivation.m in Sources */,
+				990759ED25EBEF0600A16C65 /* BCCrypto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,11 +246,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Buttercrypt;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "Buttercrypt-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Debug;
 		};
@@ -259,10 +265,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Buttercrypt;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "Buttercrypt-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Release;
 		};

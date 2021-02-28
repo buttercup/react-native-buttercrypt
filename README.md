@@ -15,7 +15,7 @@ import Buttercrypt from "react-native-buttercrypt";
 
 // ...
 
-const result = await Buttercrypt.multiply(3, 7);
+const key = await Buttercrypt.deriveKeyFromPassword('password', 'salt', 20);
 ```
 
 ## Contributing

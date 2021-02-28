@@ -1,19 +1,57 @@
 #import "Buttercrypt.h"
+#import "BCDerivation.h"
+#import "BCCrypto.h"
 
 @implementation Buttercrypt
 
 RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_REMAP_METHOD(multiply,
-                 multiplyWithA:(nonnull NSNumber*)a withB:(nonnull NSNumber*)b
+RCT_REMAP_METHOD(deriveKeyFromPassword,
+                 deriveKeyFromPassword:(NSString *)password
+                 andSalt:(NSString *)salt
+                 forRounds:(int)rounds
                  withResolver:(RCTPromiseResolveBlock)resolve
                  withRejecter:(RCTPromiseRejectBlock)reject)
 {
-  NSNumber *result = @([a floatValue] * [b floatValue]);
 
-  resolve(result);
+    NSString *result = [BCDerivation deriveKeyFromPassword:password andSalt:salt forRounds:rounds];
+    resolve(result);
+
+}
+
+RCT_REMAP_METHOD(generateSaltWithLength,
+                 generateSaltWithLength:(int)length
+                 withResolver:(RCTPromiseResolveBlock)resolve
+                 withRejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSString *result = [BCCrypto generateSaltWithLength:length];
+    resolve(result);
+}
+
+RCT_REMAP_METHOD(encryptText,
+                 encryptText:(NSString *)text
+                 withKey:(NSString *)key
+                 andSalt:(NSString *)salt
+                 andHMAC:(NSString *)hmacHexKey
+                 withResolver:(RCTPromiseResolveBlock)resolve
+                 withRejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSString *result = [BCCrypto encryptText:text withKey:key andSalt:salt andHMAC:hmacHexKey];
+    resolve(result);
+}
+
+RCT_REMAP_METHOD(decryptText,
+                 decryptText:(NSString *)encryptedText
+                 withKey:(NSString *)key
+                 andIV:(NSString *)ivHex
+                 andSalt:(NSString *)saltHex
+                 andHMACKey:(NSString *)hmacHexKey
+                 andHMAC:(NSString *)hmacHex
+                 withResolver:(RCTPromiseResolveBlock)resolve
+                 withRejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSString *result = [BCCrypto decryptText:encryptedText withKey:key andIV:ivHex andSalt:saltHex andHMACKey:hmacHexKey andHMAC:hmacHex];
+    resolve(result);
 }
 
 @end
