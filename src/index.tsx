@@ -4,7 +4,8 @@ type ButtercryptType = {
   deriveKeyFromPassword(
     password: string,
     salt: string,
-    rounds: number
+    rounds: number,
+    bits: number
   ): Promise<string>;
   generateSaltWithLength(length: number): Promise<string>;
   generateIV(): Promise<string>;

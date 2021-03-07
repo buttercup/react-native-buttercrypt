@@ -12,9 +12,9 @@ class ButtercryptModule(reactContext: ReactApplicationContext) : ReactContextBas
     }
 
     @ReactMethod
-    fun deriveKeyFromPassword(password: String, salt: String, rounds: Int, promise: Promise) {
+    fun deriveKeyFromPassword(password: String, salt: String, rounds: Int, bits: Int, promise: Promise) {
       try {
-          val derivedKey = BCDerivation.deriveKeyFromPassword(password, salt, rounds);
+          val derivedKey = BCDerivation.deriveKeyFromPassword(password, salt, rounds, bits);
           promise.resolve(derivedKey);
       } catch (e: Exception) {
           promise.reject(e);

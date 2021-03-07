@@ -17,7 +17,8 @@ export default function App() {
       const derivedKey = await Buttercrypt.deriveKeyFromPassword(
         'test',
         'test',
-        10
+        10, // rounds
+        64 * 8 // bits
       );
       setGeneratedKey(derivedKey);
       const key = derivedKey.slice(0, 64);

@@ -10,11 +10,12 @@ RCT_REMAP_METHOD(deriveKeyFromPassword,
                  deriveKeyFromPassword:(NSString *)password
                  andSalt:(NSString *)salt
                  forRounds:(int)rounds
+                 withBits:(int)bits
                  withResolver:(RCTPromiseResolveBlock)resolve
                  withRejecter:(RCTPromiseRejectBlock)reject)
 {
 
-    NSString *result = [BCDerivation deriveKeyFromPassword:password andSalt:salt forRounds:rounds];
+    NSString *result = [BCDerivation deriveKeyFromPassword:password andSalt:salt forRounds:rounds withBits:bits];
     resolve(result);
 
 }

@@ -2,6 +2,6 @@
 
 @interface BCDerivation : NSObject
 
-+ (NSString *)deriveKeyFromPassword:(NSString *)password andSalt:(NSString *)salt forRounds:(int)rounds;
++ (NSString *)deriveKeyFromPassword:(NSString *)password andSalt:(NSString *)salt forRounds:(int)rounds withBits:(int)bits;
 
 @end
