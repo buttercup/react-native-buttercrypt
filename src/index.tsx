@@ -12,6 +12,7 @@ type ButtercryptType = {
     text: string,
     key: string,
     salt: string,
+    iv: string,
     hmacHexKey: string
   ): Promise<string>;
   decryptText(

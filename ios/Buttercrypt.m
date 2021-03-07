@@ -40,11 +40,12 @@ RCT_REMAP_METHOD(encryptText,
                  encryptText:(NSString *)text
                  withKey:(NSString *)key
                  andSalt:(NSString *)salt
+                 andIV:(NSString *)ivHex
                  andHMAC:(NSString *)hmacHexKey
                  withResolver:(RCTPromiseResolveBlock)resolve
                  withRejecter:(RCTPromiseRejectBlock)reject)
 {
-    NSString *result = [BCCrypto encryptText:text withKey:key andSalt:salt andHMAC:hmacHexKey];
+    NSString *result = [BCCrypto encryptText:text withKey:key andSalt:salt andIV:ivHex andHMAC:hmacHexKey];
     resolve(result);
 }
 

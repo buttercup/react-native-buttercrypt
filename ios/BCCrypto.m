@@ -47,7 +47,7 @@ int const IV_BYTE_LEN = 16;
     return decryptedText;
 }
 
-+ (NSString *)encryptText:(NSString *)text withKey:(NSString *)key andSalt:(NSString *)salt andHMAC:(NSString *)hmacHexKey {
++ (NSString *)encryptText:(NSString *)text withKey:(NSString *)key andSalt:(NSString *)salt andIV:(NSString *)iv andHMAC:(NSString *)hmacHexKey {
     // Validation
     if (key.length != 64) {
         return @"Error:Invalid key length";
@@ -55,7 +55,6 @@ int const IV_BYTE_LEN = 16;
         return @"Error:Invalid authentication information or possible tampering";
     }
     // Data prep
-    NSString *iv = [BCCrypto generateIVHex];
     NSData *ivData = [BCHelpers dataFromHexString:iv];
     NSData *dataIn = [text dataUsingEncoding:NSUTF8StringEncoding];
     NSData *keyData = [BCHelpers dataFromHexString:key];

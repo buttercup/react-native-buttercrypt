@@ -43,8 +43,7 @@ object BCCrypto {
       return "Error:" + ex.message
     }
   }
-  fun encryptText(text:String, keyHex:String, saltHex:String, hmacHexKey:String):String {
-    val ivHex = generateIV()
+  fun encryptText(text:String, keyHex:String, saltHex:String, ivHex:String, hmacHexKey:String):String {
     val ivData = BCHelpers.hexStringToByteArray(ivHex)
     val keyData = BCHelpers.hexStringToByteArray(keyHex)
     val hmacKeyData = BCHelpers.hexStringToByteArray(hmacHexKey)

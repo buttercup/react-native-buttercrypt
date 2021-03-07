@@ -25,7 +25,13 @@ export default function App() {
       const salt = await Buttercrypt.generateSaltWithLength(20);
       setGeneratedSalt(salt);
 
-      const enc = await Buttercrypt.encryptText('hello', key, salt, hmacHexKey);
+      const enc = await Buttercrypt.encryptText(
+        'hello',
+        key,
+        salt,
+        iv,
+        hmacHexKey
+      );
       setEncryptedStr(enc);
       const [payload, hmacHex, ivHex, saltHex] = enc.split('|');
       const dec = await Buttercrypt.decryptText(

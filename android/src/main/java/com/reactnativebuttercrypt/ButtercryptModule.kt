@@ -40,8 +40,8 @@ class ButtercryptModule(reactContext: ReactApplicationContext) : ReactContextBas
     }
 
     @ReactMethod
-    fun encryptText(encodedText: String, keyHex: String, saltHex: String, hmacHexKey: String, promise: Promise) {
-      val encryptedText = BCCrypto.encryptText(encodedText, keyHex, saltHex, hmacHexKey)
+    fun encryptText(encodedText: String, keyHex: String, saltHex: String, ivHex: String, hmacHexKey: String, promise: Promise) {
+      val encryptedText = BCCrypto.encryptText(encodedText, keyHex, saltHex, ivHex, hmacHexKey)
       promise.resolve(encryptedText)
     }
 }
