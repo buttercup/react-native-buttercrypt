@@ -7,6 +7,7 @@ type ButtercryptType = {
     rounds: number
   ): Promise<string>;
   generateSaltWithLength(length: number): Promise<string>;
+  generateIV(): Promise<string>;
   encryptText(
     text: string,
     key: string,

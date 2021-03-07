@@ -28,6 +28,12 @@ class ButtercryptModule(reactContext: ReactApplicationContext) : ReactContextBas
     }
 
     @ReactMethod
+    fun generateIV(promise: Promise) {
+      val iv = BCCrypto.generateIV()
+      promise.resolve(iv)
+    }
+
+    @ReactMethod
     fun decryptText(encryptedText: String, keyHex: String, ivHex: String, saltHex: String, hmacHexKey: String, hmacHex: String, promise: Promise) {
       val decryptedText = BCCrypto.decryptText(encryptedText, keyHex, ivHex, saltHex, hmacHexKey, hmacHex)
       promise.resolve(decryptedText)

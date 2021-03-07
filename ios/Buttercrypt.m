@@ -28,6 +28,14 @@ RCT_REMAP_METHOD(generateSaltWithLength,
     resolve(result);
 }
 
+RCT_REMAP_METHOD(generateIV,
+                 withResolver:(RCTPromiseResolveBlock)resolve
+                 withRejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSString *result = [BCCrypto generateIVHex];
+    resolve(result);
+}
+
 RCT_REMAP_METHOD(encryptText,
                  encryptText:(NSString *)text
                  withKey:(NSString *)key

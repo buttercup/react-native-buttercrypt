@@ -4,6 +4,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import Buttercrypt from 'react-native-buttercrypt';
 
 export default function App() {
+  const [generatedIV, setGeneratedIV] = React.useState<string>();
   const [generatedKey, setGeneratedKey] = React.useState<string>();
   const [generatedSalt, setGeneratedSalt] = React.useState<string>();
   const [encryptedStr, setEncryptedStr] = React.useState<string>();
@@ -11,6 +12,8 @@ export default function App() {
 
   React.useEffect(() => {
     const run = async () => {
+      const iv = await Buttercrypt.generateIV();
+      setGeneratedIV(iv);
       const derivedKey = await Buttercrypt.deriveKeyFromPassword(
         'test',
         'test',
@@ -41,6 +44,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Text>IV: {generatedIV}</Text>
       <Text>Key: {generatedKey}</Text>
       <Text>Salt: {generatedSalt}</Text>
       <Text>Encrypted: {encryptedStr}</Text>
